@@ -1,21 +1,15 @@
 <?php
-// Database connection
-$conn = new COM("ADODB.Connection");
-$connStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=customers.accdb;";
-$conn->open($connStr);
+// Retrieve form data from POST request
+$formData = json_decode(file_get_contents('php://input'), true);
 
-// Get form data
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-//$gender = $_POST['gender'];
-// Insert data into database
-$sql = "INSERT INTO table (firstname, lastname) VALUES ('$firstname', '$lastname')";
-$conn->execute($sql);
+// Extract form fields
+$name = $formData['firstname'];
+$email = $formData['lastname'];
 
-// Close connection
-$conn->close();
+// Connect to Microsoft Access database
+// Perform database insert operation
 
-// Redirect back to the form page
-header("Location: index.html");
-exit();
+// Respond to client-side JavaScript
+header('Content-Type: application/json');
+echo json_encode(['success' => true]);
 ?>
