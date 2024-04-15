@@ -48,4 +48,37 @@ Interests: <br>
    <input type="checkbox" name ="interest" value="Sales">Sales <br>  
       <button type="submit">Submit</button>
   </form>
+
+
+
+<script>
+function submitForm() {
+  var formData = {
+    name: document.getElementById("firstname").value,
+    email: document.getElementById("lastname").value
+  };
+
+  // Send form data to server-side script
+  fetch('https://your-server.com/submitFormData', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Form data submitted successfully');
+    } else {
+      console.error('Failed to submit form data');
+    }
+  })
+  .catch(error => {
+    console.error('Error submitting form data:', error);
+  });
+}
+</script>
+
+
+
 </html>
