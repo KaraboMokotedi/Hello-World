@@ -7,9 +7,9 @@ $conn->open($connStr);
 // Get form data
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
-$gender = $_POST['gender'];
+//$gender = $_POST['gender'];
 // Insert data into database
-$sql = "INSERT INTO table (firstname, lastname,gender) VALUES ('$firstname', '$lastname','$gender')";
+$sql = "INSERT INTO table (firstname, lastname) VALUES ('$firstname', '$lastname')";
 $conn->execute($sql);
 
 // Close connection
