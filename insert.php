@@ -3,8 +3,8 @@
 $formData = json_decode(file_get_contents('php://input'), true);
 
 // Extract form fields
-$name = $formData['firstname'];
-$email = $formData['lastname'];
+$firstname = $formData['firstname'];
+$lastname = $formData['lastname'];
 
 // Connect to Microsoft Access database
 // Perform database insert operation
